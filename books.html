@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Books | The Book Haven</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            📖 The Book Haven
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="books.html">Books</a>
+            </li>
+
+            <li>
+                <a href="#">Categories</a>
+            </li>
+
+            <li>
+                <a href="#">About</a>
+            </li>
+
+            <li>
+                <a href="#">Contact</a>
+            </li>
+            <li><a href="cart.html">Cart</a></li>
+
+        </ul>
+
+        <div class="nav-icons">
+    <a href="cart.html" class="cart-link">🛒</a>
+    <span>👤</span>
+</div>
+
+    </nav>
+
+
+    <!-- Books Header -->
+
+    <section class="books-header">
+
+        <p>THE BOOK HAVEN COLLECTION</p>
+
+        <h1>Explore Our Books</h1>
+
+        <p>
+            Discover your next favorite book from our collection.
+        </p>
+
+    </section>
+
+
+    <!-- Search -->
+
+    <section class="book-search">
+
+    <input type="text" id="searchInput" placeholder="Search for a book...">
+
+    <button id="searchBtn">🔍 Search</button>
+
+    <div class="category-filters">
+        <button class="filter-btn active" data-filter="All">All</button>
+        <button class="filter-btn" data-filter="Mystery">Mystery</button>
+        <button class="filter-btn" data-filter="Self Help">Self Help</button>
+        <button class="filter-btn" data-filter="Finance">Finance</button>
+    </div>
+
+</section>
+
+
+    <!-- Books -->
+
+    <section class="all-books">
+
+        <div class="books-container">
+
+
+            <!-- Book 1 -->
+
+              <div class="book-card" data-category="Mystery"></div>
+           
+
+                <div class="book-image">
+                    
+
+                    
+    <img src="Images/silent-patient.jpg"
+     alt="The Silent Patient book cover">
+
+    <span class="discount">20% OFF</span>
+</div>
+                    
+
+                </div>
+
+                <div class="book-info">
+
+                    <h3>The Silent Patient</h3>
+
+                    <p class="author"> Alex Michaelides
+                    </p>
+
+                    <div class="rating">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+
+                    <div class="price">
+                        <span>₹399</span>
+                        <del>₹499</del>
+                    </div>
+
+                    <button class="cart-btn"
+        data-name="The Silent Patient"
+        data-author="Alex Michaelides"
+        data-price="399">
+    Add to Cart
+</button>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Book 2 -->
+
+            <div class="book-card" data-category="Self Help"></div>
+
+                <div class="book-image">
+                    
+                    <div class="book-image">
+    <img src="Images/atomic-habits.jpg"
+     alt="Atomic Habits book cover">
+
+    <span class="discount">15% OFF</span>
+</div>
+                </div>
+
+                <div class="book-info">
+
+                    <h3>Atomic Habits</h3>
+
+                    <p class="author">James Clear</p>
+
+                    <div class="rating">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+
+                    <div class="price">
+                        <span>₹425</span>
+                        <del>₹500</del>
+                    </div>
+
+                    <button class="cart-btn"
+        data-name="Atomic Habits"
+        data-author="James Clear"
+        data-price="425">
+    Add to Cart
+</button>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Book 3 -->
+
+            <div class="book-card" data-category="Self Help"></div>
+
+                <div class="book-image">
+                    
+                    <div class="book-image">
+    <img src="Images/ikigai.jpg" alt="Ikigai book cover">
+    <span class="discount">10% OFF</span>
+</div>
+                </div>
+
+                <div class="book-info">
+
+                    <h3>Ikigai</h3>
+
+                    <p class="author">
+                        Héctor García
+                    </p>
+
+                    <div class="rating">
+                        ⭐⭐⭐⭐
+                    </div>
+
+                    <div class="price">
+                        <span>₹315</span>
+                        <del>₹350</del>
+                    </div>
+
+                    <button class="cart-btn"
+        data-name="Ikigai"
+        data-author="Héctor García"
+        data-price="315">
+    Add to Cart
+</button>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Book 4 -->
+
+            <div class="book-card" data-category="Finance"></div>
+
+                <div class="book-image">
+                    
+                    <div class="book-image">
+    <img src="Images/rich-dad.jpg" alt="Rich Dad Poor Dad book cover">
+    <span class="discount">25% OFF</span>
+</div>
+                </div>
+
+                <div class="book-info">
+
+                    <h3>Rich Dad Poor Dad</h3>
+
+                    <p class="author">
+                        Robert Kiyosaki
+                    </p>
+
+                    <div class="rating">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+
+                    <div class="price">
+                        <span>₹375</span>
+                        <del>₹500</del>
+                    </div>
+
+                    <button class="cart-btn"
+        data-name="Rich Dad Poor Dad"
+        data-author="Robert Kiyosaki"
+        data-price="375">
+    Add to Cart
+</button>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+ <script src="js/script.js"></script>
+</body>
+
+</html>
