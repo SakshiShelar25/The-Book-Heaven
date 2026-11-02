@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart | The Book Haven</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">📖 The Book Haven</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+
+        <div class="nav-icons">
+            🛒 👤
+        </div>
+    </nav>
+
+
+    <!-- Cart Header -->
+    <section class="page-header">
+        <p>THE BOOK HAVEN</p>
+        <h1>Shopping Cart</h1>
+        <p>Review the books you've selected.</p>
+    </section>
+
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+
+        <div class="cart-container">
+
+            <div class="cart-items">
+
+                <h2>Your Cart</h2>
+
+                <div class="cart-items">
+    <h2>Your Cart</h2>
+
+    <div id="cart-items-container"></div>
+</div>
+                        📖
+                    </div>
+
+                    <div class="cart-book-details">
+                        <h3>The Silent Patient</h3>
+                        <p>Alex Michaelides</p>
+                        <p class="cart-price">₹399</p>
+                    </div>
+
+                    <div class="quantity">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+
+                    <button class="remove-btn">Remove</button>
+                </div>
+
+            </div>
+
+
+            <!-- Cart Summary -->
+            <div class="cart-summary">
+
+                <h2>Order Summary</h2>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>₹399</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Delivery</span>
+                    <span>FREE</span>
+                </div>
+
+                <hr>
+
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span>₹399</span>
+                </div>
+<button class="checkout-btn" onclick="window.location.href='checkout.html'">
+    Proceed to Checkout
+
+                
+                    
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-box">
+                <h3>📖 The Book Haven</h3>
+                <p>Where Every Story Finds a Home.</p>
+            </div>
+
+            <div class="footer-box">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="books.html">Books</a>
+                <a href="cart.html">Cart</a>
+            </div>
+
+            <div class="footer-box">
+                <h4>Customer Support</h4>
+                <p>Contact Us</p>
+                <p>FAQs</p>
+                <p>Easy Returns</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 The Book Haven. All Rights Reserved.
+        </div>
+
+    </footer>
+
+</body>
+
+<script>
+    
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const container = document.getElementById("cart-items-container");
+
+    function displayCart() {
+
+        container.innerHTML = "";
+
+        if (cart.length === 0) {
+            container.innerHTML = "<p>Your cart is empty.</p>";
+            updateTotal();
+            return;
+        }
+
+        cart.forEach(function(book, index) {
+
+            container.innerHTML += `
+                <div class="cart-item">
+
+                    <div class="cart-book-image">
+                        📖
+                    </div>
+
+                    <div class="cart-book-details">
+                        <h3>${book.name}</h3>
+                        <p>${book.author}</p>
+                        <p class="cart-price">₹${book.price}</p>
+                    </div>
+
+                    <div class="quantity">
+                        <button onclick="decreaseQuantity(${index})">−</button>
+                        <span>${book.quantity || 1}</span>
+                        <button onclick="increaseQuantity(${index})">+</button>
+                    </div>
+
+                    <button class="remove-btn" onclick="removeBook(${index})">
+                        Remove
+                    </button>
+
+                </div>
+            `;
+        });
+
+        updateTotal();
+    }
+
+
+    function increaseQuantity(index) {
+
+        cart[index].quantity = (cart[index].quantity || 1) + 1;
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        displayCart();
+    }
+
+
+    function decreaseQuantity(index) {
+
+        if ((cart[index].quantity || 1) > 1) {
+
+            cart[index].quantity--;
+
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        displayCart();
+    }
+
+
+    function removeBook(index) {
+
+        cart.splice(index, 1);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        displayCart();
+    }
+
+
+    function updateTotal() {
+
+        let total = 0;
+
+        cart.forEach(function(book) {
+
+            total += book.price * (book.quantity || 1);
+
+        });
+
+        const subtotal = document.querySelector(".cart-summary .summary-row span:last-child");
+
+        const totalElement = document.querySelector(".summary-total span:last-child");
+
+        if (subtotal) {
+            subtotal.textContent = "₹" + total;
+        }
+
+        if (totalElement) {
+            totalElement.textContent = "₹" + total;
+        }
+    }
+
+
+    displayCart();
+
+    
+    
+                        
+    
+</script>
+</html>
